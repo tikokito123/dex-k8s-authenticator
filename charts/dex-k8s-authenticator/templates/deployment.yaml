@@ -43,14 +43,14 @@ spec:
         - name: http
           containerPort: {{ default "5555" .Values.dexK8sAuthenticator.port }}
           protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: {{ template "dex-k8s-authenticator.healthCheckPath" . }}
-            port: http
-        readinessProbe:
-          httpGet:
-            path: {{ template "dex-k8s-authenticator.healthCheckPath" . }}
-            port: http
+#         livenessProbe:
+#           httpGet:
+#             path: {{ template "dex-k8s-authenticator.healthCheckPath" . }}
+#             port: http
+#         readinessProbe:
+#           httpGet:
+#             path: {{ template "dex-k8s-authenticator.healthCheckPath" . }}
+#             port: http
         volumeMounts:
         - name: config
           subPath: config.yaml
